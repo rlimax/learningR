@@ -35,8 +35,10 @@ help.search("normal distribution")
   install.packages("hrbrthemes")
   install.packages("kableExtra")
   install.packages("dlookr")
+  install.packages("MASS")
   # carregar pacote
   library("dlookr")
+  library("MASS")
 
 # Verifica pacotes carregados
 search()
@@ -45,9 +47,14 @@ search()
 detach(package:dlookr)
 detach(package:graphics)
 
-# Resolução de conflitos
+# Resolução de conflitos - Caso haja funções de mesmo nome
   #Utiliza-se nomePacote::função
   #MASS::mrvnorm
-x <- MASS::mvrnorm(n=100, mu, Sigma)
+x <- MASS::mvrnorm(parametro1, parametro2, parametro3)
 
+
+# Exemplo de uso
+Sigma <- matrix(c(10,3,3,2),nrow=2,ncol=2) # Matrix de Variância-Covariância
+mu <- c(1,10) # Médias
+x <- mvrnorm(n=100, mu, Sigma) # Gerar 100 observações
 #
