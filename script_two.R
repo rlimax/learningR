@@ -138,3 +138,4 @@ save(sim_normal, file = "sim_normal.RData")  # Salva o escopo da variável
 rm(sim_normal)                               # Remove da memória
 ls(pattern = "sim_normal")                   # Verifica se foi removida
 load(file = "sim_normal.RData")              # Carrega do arquivo
+
