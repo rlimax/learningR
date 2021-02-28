@@ -131,3 +131,10 @@ ls()                          # Verifica
 # Carregar área de trabalho salva
 load(file = "workplace.RData")        # Carregar todas as variáveis
 ls()                          # Verifica
+
+# Salvar apenas um conjunto de objetos/variáveis
+sim_normal <- rnorm(100, mean=10, sd=2)      # Cria a variável
+save(sim_normal, file = "sim_normal.RData")  # Salva o escopo da variável
+rm(sim_normal)                               # Remove da memória
+ls(pattern = "sim_normal")                   # Verifica se foi removida
+load(file = "sim_normal.RData")              # Carrega do arquivo
