@@ -44,7 +44,7 @@ is.logical(texto)       #
 # Conversão de classe
 as.character(numero)
 as.numeric(numero)
-as.integer(numero) # Desconsidera decimal, não arredonda.
+as.integer(numero)      # Desconsidera decimal, não arredonda.
 as.numeric(logico)
 as.numeric("001232")
 
@@ -130,7 +130,7 @@ ls()                          # Verifica
 
 # Carregar área de trabalho salva
 load(file = "workplace.RData")        # Carregar todas as variáveis
-ls()                          # Verifica
+ls()                                  # Verifica
 
 # Salvar apenas um conjunto de objetos/variáveis
 sim_normal <- rnorm(100, mean=10, sd=2)      # Cria a variável
