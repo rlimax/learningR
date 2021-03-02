@@ -65,3 +65,36 @@ funcionarios <- cbind(funcionarios, prim_emprego = c("sim","nao","nao"),
 # Remover colunas
 funcionarios$prim_emprego <- NULL           # Remove com NULL
 funcionarios <- funcionarios[, c(-4, -6)]   # Remove retornando filtrado
+funcionarios
+
+# Adicionar linhas
+
+funcionarios[4,] <- c("Ana","F",2000,15)    # Causa coerção
+str(funcionarios)                           # Todos assumem character
+
+funcionarios$salario <- as.numeric(funcionarios$salario)
+funcionarios$experiencia <- as.numeric(funcionarios$experiencia)
+
+funcionarios[5,] <- data.frame(nome = "Cleide", sexo = "F",
+                               salario = 2000, experiencia = 15,
+                               stringsAsFactors = FALSE
+                               )
+# Adicionar linha com rbind()
+rbind(funcionarios,
+      data.frame(nome = "Fiuk", sexo = "F",
+      salario = 2020, experiencia = 15,
+      stringsAsFactors = FALSE)
+)
+
+# Não é bom ficar adicioando linhas e colunas.
+# Sempre que possível pré-aloque espaço.
+
+# Remover linhas
+    # Remove linha 4
+funcionarios <- funcionarios[-4,]                         
+    # Remove linha onde salario > 1200
+funcionarios <- funcionarios[funcionarios$salario > 1200,]
+funcionarios
+
+
+rm(list = c("w","x","z","y"))
