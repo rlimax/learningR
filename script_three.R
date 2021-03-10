@@ -103,3 +103,22 @@ rm(list = c("w","x","z","y"))
 # Seleções
 funcionarios[funcionarios$salario > 1300,]  # salario > 1300
 funcionarios[funcionarios$sexo == "M",]     # sexo = M
+
+
+# Funções de conveniência
+# SUBSET
+# Selecionar linhas e colunas de dataframe
+#subset(nome_do_dataframe,
+#       subset = expressao_logica_filtro,
+#       select = nomes_colunas,
+#       drop   = simplificar_vetor?)
+subset(funcionarios, sexo == "F")
+subset(funcionarios, sexo == "M", select = c("nome","salario"))
+
+# Funções de conveniência
+# com WITH
+with(funcionarios, (salario^3 - salario^2)/log(salario))
+# sem WITH
+(funcionarios$salario^3 - funcionarios^2)/log(funcionarios$salario)
+
+
