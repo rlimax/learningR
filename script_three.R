@@ -119,6 +119,30 @@ subset(funcionarios, sexo == "M", select = c("nome","salario"))
 # com WITH
 with(funcionarios, (salario^3 - salario^2)/log(salario))
 # sem WITH
-(funcionarios$salario^3 - funcionarios^2)/log(funcionarios$salario)
+(funcionarios$salario^3 - funcionarios$salario^2)/log(funcionarios$salario)
+
+# Quatro maneiras de obter o mesmo resultado
+subset(funcionarios, sexo == "M", select = "salario", drop = TRUE)
+with(funcionarios, salario[sexo == "M"])
+funcionarios$salario[funcionarios$sexo == "M"]
+funcionarios[funcionarios$sexo == "M", "salario"]
 
 
+# Funções nas colunas - SAPPLY / LAPPLY
+# Aplicam a função em cada elemento
+# Tenta simplificar o resultado
+    # SAPPLY()
+sapply(funcionarios[3:4], mean)
+
+# Sempre retorna uma lista
+    # LAPPLY()
+lapply(funcionarios[3:4], mean)
+
+# Filtrar variáveis antes de aplicar funções
+    # FILTER()
+filter(is.numeric, funcionarios)
+filter(is.character, funcionarios)
+
+# Filtro aplicado dentro da função
+sapply(Filter(is.numeric, funcionarios), max)
+sapply(Filter(is.numeric, funcionarios), mean)
