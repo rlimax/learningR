@@ -98,3 +98,8 @@ funcionarios
 
 
 rm(list = c("w","x","z","y"))
+
+
+# Seleções
+funcionarios[funcionarios$salario > 1300,]  # salario > 1300
+funcionarios[funcionarios$sexo == "M",]     # sexo = M
